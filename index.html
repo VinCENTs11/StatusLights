@@ -1,237 +1,498 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FRC Status Lights</title>
-<style>
-* {
-box-sizing: border-box;
-}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FRC Status Lights</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-body {
-margin: 0;
-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-display: flex;
-flex-direction: row;
-background-color: #f4f4f4;
-}
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      background-color: #f4f4f4;
+    }
 
-.sidebar {
-width: 250px;
-background-color: #1a1a1a;
-color: white;
-padding-top: 20px;
-height: 100vh;
-position: fixed;
-top: 0;
-left: 0;
-overflow-y: auto;
-box-shadow: 2px 0 8px rgba(0,0,0,0.5);
-}
+    .sidebar {
+      width: 250px;
+      background-color: #1a1a1a;
+      color: white;
+      padding-top: 20px;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      overflow-y: auto;
+      box-shadow: 2px 0 8px rgba(0,0,0,0.5);
+    }
 
-.sidebar a {
-padding: 12px 20px;
-display: block;
-color: #fff;
-text-decoration: none;
-font-weight: bold;
-border-bottom: 1px solid #333;
-transition: background 0.3s;
-}
+    .sidebar a {
+      padding: 12px 20px;
+      display: block;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      border-bottom: 1px solid #333;
+      transition: background 0.3s;
+      cursor: pointer;
+    }
 
-.sidebar a:hover {
-background-color: #1d4d8c;
-}
+    .sidebar a:hover {
+      background-color: #1d4d8c;
+    }
 
-.logo {
-text-align: center;
-padding: 10px 0;
-border-bottom: 1px solid #444;
-}
+    .logo {
+      text-align: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #444;
+    }
 
-.logo img {
-height: 50px;
-cursor: pointer;
-}
+    .logo img {
+      height: 50px;
+      cursor: pointer;
+    }
 
-.main {
-margin-left: 250px;
-padding: 30px;
-flex-grow: 1;
-background-color: #fff;
-min-height: 100vh;
-overflow: hidden;
-}
+    .main {
+      margin-left: 250px;
+      padding: 30px;
+      flex-grow: 1;
+      background-color: #fff;
+      min-height: 100vh;
+    }
 
-.section {
-display: none;
-}
+    .section {
+      display: none;
+    }
 
-.section.active {
-display: block;
-}
+    .section.active {
+      display: block;
+    }
 
-.section h2 {
-color: #1d4d8c;
-border-bottom: 2px solid #ddd;
-padding-bottom: 8px;
-margin-bottom: 20px;
-}
+    .section h2 {
+      color: #1d4d8c;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 8px;
+      margin-top: 40px;
+      margin-bottom: 15px;
+    }
 
-.gif-placeholder {
-width: 100%;
-max-width: 900px;
-background-color: #eee;
-display: flex;
-justify-content: center;
-align-items: center;
-margin: 20px auto;
-padding: 10px;
-}
+    .gif-placeholder {
+      width: 100%;
+      max-width: 900px;
+      background-color: #eee;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 20px auto;
+      padding: 10px;
+    }
 
-.gif-placeholder img {
-width: 100%;
-height: auto;
-}
+    .gif-placeholder img {
+      width: 100%;
+      height: auto;
+    }
 
-#about p {
-max-width: 700px;
-line-height: 1.6;
-}
+    #about p {
+      max-width: 700px;
+      line-height: 1.6;
+    }
 
-.social-icons img {
-vertical-align: middle;
-margin: 0 10px;
-}
+    .social-icons img {
+      vertical-align: middle;
+      margin: 0 10px;
+    }
 
-/* Mobile Styles */
-@media (max-width: 768px) {
-body {
-flex-direction: column;
-}
+    /* Quiz Buttons */
+    .quiz-button {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 12px 20px;
+      background-color: #1d4d8c;
+      color: white;
+      font-weight: bold;
+      border: none;
+      margin: 10px 0;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s ease-in-out;
+      border-radius: 8px;
+      width: fit-content;
+    }
 
-.sidebar {
-width: 100%;
-height: auto;
-position: relative;
-box-shadow: none;
-}
+    .quiz-button:hover {
+      background-color: #153c6e;
+      transform: scale(1.05);
+    }
 
-.main {
-margin-left: 0;
-padding: 20px;
-}
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+      }
 
-.sidebar a {
-text-align: center;
-padding: 14px;
-}
+      .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        box-shadow: none;
+      }
 
-.gif-placeholder {
-max-width: 100%;
-}
-}
-</style>
+      .main {
+        margin-left: 0;
+        padding: 20px;
+      }
+
+      .sidebar a {
+        text-align: center;
+        padding: 14px;
+      }
+
+      .gif-placeholder {
+        max-width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
-<div class="sidebar">
-<div class="logo">
-<img src="img/FRC.png" onclick="location.reload()" alt="FRC Logo" />
-</div>
-<a onclick="showSection('talonfx')">TalonFX Light Status</a>
-<a onclick="showSection('pigeon')">Pigeon Light Status</a>
-<a onclick="showSection('canivore')">CANivore Light Status</a>
-<a onclick="showSection('radio')">Radio Light Status</a>
-<a onclick="showSection('canandcolor')">Canandcolor Light Status</a>
-<a onclick="showSection('about')">ABOUT</a>
-</div>
+  <div class="sidebar">
+    <div class="logo">
+      <img
+        src="img/FRC.png"
+        alt="FRC Logo"
+        style="cursor:pointer;"
+        onclick="handleLogoClick()"
+      />
+    </div>
+    <a onclick="showSection('talonfx')">TalonFX Light Status</a>
+    <a onclick="showSection('pigeon')">Pigeon Light Status</a>
+    <a onclick="showSection('canivore')">CANivore Light Status</a>
+    <a onclick="showSection('radio')">Radio Light Status</a>
+    <a onclick="showSection('canandcolor')">Canandcolor Light Status</a>
+    <a onclick="showSection('quiz')">Quiz (STILL IN PROGRESS!!!!!)</a>
+    <a onclick="showSection('about')">ABOUT</a>
+  </div>
 
-<div class="main">
-<div id="talonfx" class="section active">
-<h2>TalonFX Light Status</h2>
-<div class="gif-placeholder">
-<img src="img/Talon.gif" alt="TalonFX Status Light" />
-</div>
-</div>
+  <div class="main">
+    <div id="talonfx" class="section">
+      <h2>TalonFX Light Status</h2>
+      <div class="gif-placeholder">
+        <img src="img/Talon.gif" alt="TalonFX Status Light" />
+      </div>
+    </div>
 
-<div id="pigeon" class="section">
-<h2>Pigeon Light Status</h2>
-<div class="gif-placeholder">
-<img src="img/Pigeon Light Status.gif" alt="Pigeon Status Light" />
-</div>
-</div>
+    <div id="pigeon" class="section">
+      <h2>Pigeon Light Status</h2>
+      <div class="gif-placeholder">
+        <img src="img/Pigeon Light Status.gif" alt="Pigeon Status Light" />
+      </div>
+    </div>
 
-<div id="canivore" class="section">
-<h2>CANivore Light Status</h2>
-<div class="gif-placeholder">
-<img src="img/CANivore.jpeg" alt="CANivore Status Light" />
-</div>
-</div>
+    <div id="canivore" class="section">
+      <h2>CANivore Light Status</h2>
+      <div class="gif-placeholder">
+        <img src="img/CANivore.jpeg" alt="CANivore Status Light" />
+      </div>
+    </div>
 
-<div id="radio" class="section">
-<h2>Radio Light Status</h2>
-<div class="gif-placeholder">
-<img src="img/Radio.png" alt="Radio Status Light" />
-</div>
-</div>
+    <div id="radio" class="section">
+      <h2>Radio Light Status</h2>
+      <div class="gif-placeholder">
+        <img src="img/Radio.png" alt="Radio Status Light" />
+      </div>
+    </div>
 
-<div id="canandcolor" class="section">
-<h2>Canandcolor Light Status</h2>
-<div class="gif-placeholder">
-<img src="img/Canandcolor.png" alt="Canandcolor Status Light" />
-</div>
-</div>
+    <div id="canandcolor" class="section">
+      <h2>Canandcolor Light Status</h2>
+      <div class="gif-placeholder">
+        <img src="img/Canandcolor.png" alt="Canandcolor Status Light" />
+      </div>
+    </div>
 
-<div id="about" class="section">
-<h2>About</h2>
-<p>This tool was made to simulate status light behavior in an organized way.</p>
-<p><b>Special Thanks to Spartatroniks Members and Mentors!</b></p>
-<img src="img/spartatroniks.png" alt="Spartatroniks Logo" width="250" />
+    <!-- Quiz Main Section with headers and start buttons -->
+    <div id="quiz" class="section">
+      <h2>Quiz For Status Lights</h2>
+      <p>
+        Ready to test what you know? This section lets you quiz yourself on different status lights from parts like Talons, Pigeons, and more.
+        Want the full challenge? Go to <b>"ALL"</b> to cover every section at once. Just want to focus on one part? Choose a specific quiz to drill down on that device's lights only.
+      </p>
 
-<br><br><h2>Spartatroniks Links</h2>
-<div class="social-icons">
-<a href="https://www.spartatroniks.com/" target="_blank">
-<img src="img/website.png" width="50" height="50" alt="Website" />
-</a>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<a href="https://www.youtube.com/channel/UCFAskq9b7eQRB1AGZnYoi8A" target="_blank">
-<img src="img/youtube.png" width="70" height="50" alt="YouTube" />
-</a>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<a href="https://www.instagram.com/spartatroniks/" target="_blank">
-<img src="img/insta.png" width="95" height="50" alt="Instagram" />
-</a>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<a href="https://www.thebluealliance.com/team/3512" target="_blank">
-<img src="img/TBA.png" width="65" height="62" alt="The Blue Alliance" />
-</a>
+      <div>
+        <h3>TalonFX Light Quiz</h3>
+        <button class="quiz-button" onclick="startQuiz('talonfx')">Start TalonFX Quiz</button>
+      </div>
 
-</div>
-<br><br><h2>Sources</h2>
-<a href="https://v6.docs.ctr-electronics.com/en/stable/docs/hardware-reference/talonfx/index.html" target="_blank" > TalonFX CTR </a>
-<br><br>
-<a href="https://v6.docs.ctr-electronics.com/en/stable/docs/hardware-reference/pigeon2/index.html" target="_blank" > Pigeon CTR </a>
-<br><br>
-<a href="https://docs.reduxrobotics.com/canandcolor/led-codes" target="_blank" > Canandcolor </a>
-<br><br>
-<a href="https://frc-radio.vivid-hosting.net/overview/led-status-indications" target="_blank" > Radio </a>
-<br><br>
-<a href="https://ctre.download/files/user-manual/CANivore%20User's%20Guide.pdf" target="_blank" > CANivore </a>
+      <div>
+        <h3>Pigeon Light Quiz</h3>
+        <button class="quiz-button" onclick="startQuiz('pigeon')">Start Pigeon Quiz</button>
+      </div>
 
+      <div>
+        <h3>CANivore Light Quiz</h3>
+        <button class="quiz-button" onclick="startQuiz('canivore')">Start CANivore Quiz</button>
+      </div>
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><p>Made by Vincent Sanchez Team 3512</p>
-</div>
-</div>
+      <div>
+        <h3>Radio Light Quiz</h3>
+        <button class="quiz-button" onclick="startQuiz('radio')">Start Radio Quiz</button>
+      </div>
 
-<script>
-function showSection(id) {
-const sections = document.querySelectorAll('.section');
-sections.forEach(section => section.classList.remove('active'));
-const target = document.getElementById(id);
-if (target) target.classList.add('active');
-}
-</script>
+      <div>
+        <h3>Canandcolor Quiz</h3>
+        <button class="quiz-button" onclick="startQuiz('canandcolor')">Start Canandcolor Quiz</button>
+      </div>
+
+      <div>
+        <h3>ALL Quiz For Status Lights</h3>
+        <button class="quiz-button" onclick="startQuiz('all')">Start ALL Quiz</button>
+      </div>
+    </div>
+
+    <!-- Quiz container for questions -->
+    <div id="quiz-container" class="section" style="display:none;">
+      <div id="quiz-question-container"></div>
+      <div id="quiz-nav" style="margin-top: 20px;">
+        <button id="confirm-btn" onclick="confirmAnswer()">Confirm</button>
+        <button id="back-to-menu" onclick="returnToMenu()" style="display:none;">Return to Quiz Menu</button>
+      </div>
+    </div>
+
+    <div id="about" class="section">
+      <h2>About</h2>
+      <p>This tool was made to simulate status light behavior in an organized way.</p>
+      <p><b>Special Thanks to Spartatroniks Members and Mentors!</b></p>
+      <img src="img/spartatroniks.png" alt="Spartatroniks Logo" width="250" />
+
+      <br /><br />
+      <h2>Spartatroniks Links</h2>
+      <div class="social-icons">
+        <a href="https://www.spartatroniks.com/" target="_blank">
+          <img src="img/website.png" width="50" height="50" alt="Website" />
+        </a>
+        <a href="https://www.youtube.com/channel/UCFAskq9b7eQRB1AGZnYoi8A" target="_blank">
+          <img src="img/youtube.png" width="70" height="50" alt="YouTube" />
+        </a>
+        <a href="https://www.instagram.com/spartatroniks/" target="_blank">
+          <img src="img/insta.png" width="95" height="50" alt="Instagram" />
+        </a>
+        <a href="https://www.thebluealliance.com/team/3512" target="_blank">
+          <img src="img/TBA.png" width="65" height="62" alt="The Blue Alliance" />
+        </a>
+      </div>
+
+      <br /><br />
+      <h2>Sources</h2>
+      <a
+        href="https://v6.docs.ctr-electronics.com/en/stable/docs/hardware-reference/talonfx/index.html"
+        target="_blank"
+        >TalonFX CTR</a
+      ><br /><br />
+      <a
+        href="https://v6.docs.ctr-electronics.com/en/stable/docs/hardware-reference/pigeon2/index.html"
+        target="_blank"
+        >Pigeon CTR</a
+      ><br /><br />
+      <a href="https://docs.reduxrobotics.com/canandcolor/led-codes" target="_blank"
+        >Canandcolor</a
+      ><br /><br />
+      <a href="https://frc-radio.vivid-hosting.net/overview/led-status-indications" target="_blank"
+        >Radio</a
+      ><br /><br />
+      <a
+        href="https://ctre.download/files/user-manual/CANivore%20User's%20Guide.pdf"
+        target="_blank"
+        >CANivore</a
+      >
+
+      <br /><br /><br /><br />
+      <p>Made by Vincent Sanchez, Team 3512</p>
+    </div>
+  </div>
+
+  <script>
+    // Show section helper
+    function showSection(id) {
+      const sections = document.querySelectorAll('.section');
+      sections.forEach((section) => {
+        section.classList.remove('active');
+        if (section.id === 'quiz-container') {
+          section.style.display = 'none';
+        }
+      });
+
+      const target = document.getElementById(id);
+      if (target) {
+        target.classList.add('active');
+        if (id === 'quiz') {
+          document.getElementById('quiz-container').style.display = 'none';
+        }
+      }
+      window.scrollTo(0, 0);
+    }
+
+    // On page load, decide which section to show
+    window.onload = () => {
+      // Check localStorage for section to show (set by logo click)
+      const sectionToShow = localStorage.getItem('showSection');
+      if (sectionToShow) {
+        showSection(sectionToShow);
+        // Clear the flag so next reload goes default
+        localStorage.removeItem('showSection');
+      } else {
+        // Default to TalonFX
+        showSection('talonfx');
+      }
+    };
+
+    // Handle FRC logo click: save flag & reload page
+    function handleLogoClick() {
+      localStorage.setItem('showSection', 'talonfx');
+      location.reload();
+    }
+
+    // Quiz logic below (unchanged, abbreviated here)
+    const quizData = {
+      talonfx: [
+        {
+          q: 'What does a blinking red light mean?',
+          choices: ['Overcurrent', 'Bootloader', 'Low voltage', 'Good signal'],
+          correct: 1,
+        },
+        {
+          q: 'Solid green means?',
+          choices: ['Error', 'Firmware issue', 'Normal operation', 'CAN disconnect'],
+          correct: 2,
+        },
+        // Add more questions here (total 10)
+      ],
+      pigeon: [
+        {
+          q: 'What color shows calibration?',
+          choices: ['Orange', 'Blue', 'Purple', 'Red'],
+          correct: 0,
+        },
+        // Add more questions here (total 10)
+      ],
+      // ... other quizzes
+      canivore: [],
+      radio: [],
+      canandcolor: [],
+      all: [],
+    };
+
+    let currentQuiz = [],
+      currentIndex = 0,
+      selectedAnswer = null,
+      userAnswers = [];
+
+    function startQuiz(type) {
+      if (type === 'all') {
+        currentQuiz = [];
+        for (let key in quizData) {
+          if (key !== 'all') currentQuiz = currentQuiz.concat(quizData[key]);
+        }
+      } else {
+        currentQuiz = quizData[type].slice();
+      }
+
+      // Don't shuffle answers here for simplicity or fix answer check accordingly
+      currentIndex = 0;
+      userAnswers = [];
+      selectedAnswer = null;
+
+      showSection('quiz-container');
+      document.getElementById('quiz-container').style.display = 'block';
+      document.getElementById('quiz').classList.remove('active');
+      showQuestion();
+    }
+
+    function showQuestion() {
+      const q = currentQuiz[currentIndex];
+      selectedAnswer = null;
+      const container = document.getElementById('quiz-question-container');
+      container.innerHTML = `
+        <h3>Question ${currentIndex + 1} of ${currentQuiz.length}</h3>
+        <p>${q.q}</p>
+        <ul style="list-style:none;padding:0;">
+          ${q.choices
+            .map(
+              (choice, i) => `
+            <li style="margin:10px 0;">
+              <label>
+                <input type="radio" name="quiz" value="${i}" onclick="selectedAnswer=${i}">
+                ${choice}
+              </label>
+            </li>
+          `
+            )
+            .join('')}
+        </ul>
+      `;
+      document.getElementById('confirm-btn').style.display = 'inline-block';
+      document.getElementById('back-to-menu').style.display = 'none';
+    }
+
+    function confirmAnswer() {
+      if (selectedAnswer === null) return alert('Select an answer first!');
+
+      const q = currentQuiz[currentIndex];
+      const wasCorrect = selectedAnswer === q.correct;
+
+      userAnswers.push({
+        question: q.q,
+        selected: q.choices[selectedAnswer],
+        correct: q.choices[q.correct],
+        isCorrect: wasCorrect,
+      });
+
+      const container = document.getElementById('quiz-question-container');
+      container.innerHTML += `
+        <p style="color:${wasCorrect ? 'green' : 'red'};">
+          ${wasCorrect ? '✔ Correct!' : `❌ Wrong. Correct: ${q.choices[q.correct]}`}
+        </p>
+      `;
+
+      document.getElementById('confirm-btn').style.display = 'none';
+
+      setTimeout(() => {
+        currentIndex++;
+        if (currentIndex < currentQuiz.length) {
+          showQuestion();
+        } else {
+          showSummary();
+        }
+      }, 1500);
+    }
+
+    function showSummary() {
+      const container = document.getElementById('quiz-question-container');
+      container.innerHTML = `
+        <h3>Quiz Summary</h3>
+        <ul style="list-style:none;padding:0;">
+          ${userAnswers
+            .map(
+              (a, i) => `
+            <li style="margin:10px 0;">
+              <strong>Q${i + 1}:</strong> ${a.question}<br>
+              <span style="color:${a.isCorrect ? 'green' : 'red'};">
+                ${a.isCorrect ? '✔ Correct' : `❌ Incorrect`} — Your Answer: ${a.selected} | Correct: ${a.correct}
+              </span>
+            </li>
+          `
+            )
+            .join('')}
+        </ul>
+      `;
+      document.getElementById('back-to-menu').style.display = 'inline-block';
+    }
+
+    function returnToMenu() {
+      document.getElementById('quiz-container').style.display = 'none';
+      showSection('quiz');
+    }
+  </script>
 </body>
 </html>
 
