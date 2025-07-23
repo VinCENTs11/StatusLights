@@ -240,7 +240,7 @@
       </div>
 
       <div>
-        <h3>Canandcolor Quiz(Not FINISHED)</h3>
+        <h3>Canandcolor Light Quiz(DONE)</h3>
         <button class="quiz-button" onclick="startQuiz('canandcolor')">Start Canandcolor Quiz</button>
       </div>
 
@@ -386,16 +386,38 @@
 ],
       canandcolor: [
          {
-          q: 'Question',
-          choices: ['answer 1', 'answer2', 'answer 3', 'answer 4'],
-          correct: 2,
+          q: 'What does it mean when the Canandcolor LEDs are solid blue?',
+          choices: ['Hardware fault', 'DFU failed, check alchemist', 'DFU in progress', 'CAN ID conflict'],
+          correct: 1,
         },
 
          {
-          q: 'Question',
-          choices: ['answer 1', 'answer2', 'answer 3', 'answer 4'],
+          q: 'What does it mean when the LEDs alternate red and blue?',
+          choices: ['CAN ID conflict', 'Normal operation, roboRIO detected on CAN bus', 'roboRIO not detected or other CANbus faults', 'roboRIO detected on CAN bus'],
+          correct: 0,
+        },
+	{
+          q: 'What does it mean when the LEDs blink red slowly?',
+          choices: ['roboRIO not detected or other CANbus faults', 'CAN ID conflict', 'DFU in progress', 'Hardware fault'],
+          correct: 0,
+        },
+	{
+          q: 'What does it mean when the LEDs blink green slowly?',
+          choices: ['DFU in progress', 'Hardware fault', 'Normal operation, roboRIO detected on CAN bus', 'roboRIO not detected or other CANbus faults'],
           correct: 2,
         },
+	{
+          q: 'What does it mean when the LEDs blink Alternating Red and Yellow?',
+          choices: ['roboRIO not detected or other CANbus faults', 'DFU in progress', 'CAN ID conflict', 'Hardware falut'],
+          correct: 3,
+        },
+	{
+          q: 'What does it mean when the LEDs blink blue??',
+          choices: ['Normal operation, roboRIO detected on CAN bus', 'DFU in progress', 'roboRIO not detected or other CANbus faults', 'DFU failed, check Alchemist'],
+          correct: 1,
+        },
+
+
 
        
       ],
@@ -426,10 +448,17 @@
           correct: 1,
           },
         {
-          q: 'What does it mean when the LEDs Alternate Red/Orange',
-          choices: ['Pigeon 2 detects CAN and sees the robot is enabled.', 'Pigeon 2 in bootloader.', 'Pigeon 2 detects CAN and sees the robot is disabled. Phoenix is running in robot controller and Pigeon 2 has good CAN connection to robot controller.', 'Damaged Hardware'],
+          q: 'What does it mean when the LEDs Alternate Red?',
+          choices: ['No Power', 'Pigeon 2 detects CAN and sees the robot is enabled.', 'Damaged Hardware.', 'Pigeon 2 does not have valid CAN.'],
           correct: 3,
         },
+	{
+          q: 'What does it mean when the LEDs Alternate Green',
+          choices: ['Pigeon 2 detects CAN and sees the robot is enabled.', 'Pigeon 2 detects CAN and sees the robot is disabled. Phoenix is running in robot controller and Pigeon 2 has good CAN connection to robot controller.', 'Pigeon 2 detects CAN but does not see Phoenix running on the robot controller.', 'Pigeon 2  does not detect the CAN and sees the robot is powered Off.'],
+          correct: 0,
+        },
+
+
         // Add more questions here (total 10)
       ],
       all: [],
@@ -548,4 +577,3 @@
   </script>
 </body>
 </html>
-
