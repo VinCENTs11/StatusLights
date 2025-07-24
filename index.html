@@ -220,32 +220,32 @@
       </p>
 
       <div>
-        <h3>TalonFX Light Quiz(Not FINISHED)</h3>
+        <h3 style="color: green;">Talon FX Light Quiz(DONE)</h3>
         <button class="quiz-button" onclick="startQuiz('talonfx')">Start TalonFX Quiz</button>
       </div>
 
       <div>
-        <h3>Pigeon Light Quiz (DONE) </h3>
+       <h3 style="color: green;">Pigeon Light Quiz (DONE)</h3>
         <button class="quiz-button" onclick="startQuiz('pigeon')">Start Pigeon Quiz</button>
       </div>
 
-      <div>
-        <h3>CANivore Light Quiz (Not FINISHED) </h3>
-        <button class="quiz-button" onclick="startQuiz('canivore')">Start CANivore Quiz</button>
-      </div>
-
-      <div>
-        <h3>Radio Light Quiz(Not FINISHED)</h3>
-        <button class="quiz-button" onclick="startQuiz('radio')">Start Radio Quiz</button>
-      </div>
-
-      <div>
-        <h3>Canandcolor Light Quiz(DONE)</h3>
+     <div>
+        <h3 style="color: green;">Canandcolor Light Quiz (DONE)</h3>
         <button class="quiz-button" onclick="startQuiz('canandcolor')">Start Canandcolor Quiz</button>
       </div>
 
       <div>
-        <h3>ALL Quiz For Status Lights(Not FINISHED)</h3>
+        <h3 style="color: red;">Radio Light Quiz (Not FINISHED)</h3>
+        <button class="quiz-button" onclick="startQuiz('radio')">Start Radio Quiz</button>
+      </div>
+
+       <div>
+        <h3 style="color: red;">CANivore Light Quiz (Not FINISHED)</h3>
+        <button class="quiz-button" onclick="startQuiz('canivore')">Start CANivore Quiz</button>
+      </div>
+
+      <div>
+        <h3 style="color: red;">ALL Quiz For Status Lights (Not FINISHED)</h3>
         <button class="quiz-button" onclick="startQuiz('all')">Start ALL Quiz</button>
       </div>
     </div>
@@ -357,11 +357,67 @@
       talonfx: [
        
         {
-          q: 'Question',
-          choices: ['answer 1', 'answer2', 'answer 3', 'answer 4'],
+          q: 'What does it mean when the TalonFx LEDs blink alternating orange?',
+          choices: ['Talon FX does not have a valid CAN/PWM signal.', 'Talon FX in thermal cutoff.', 'Talon FX limited (hard or soft limit). Direction of offset determines forward/reverse limit.', 'TalonFX detects CAN but does not see Phoenix running on the robot controller.'],
+          correct: 3,
+        },
+{
+          q: 'What does it mean when LEDs blink simultaneously red?',
+          choices: ['Talon FX driving in reverse. Rate of blink corresponds to duty cycle applied.', 'Damaged Hardware.', 'Talon FX has valid CAN signal and is disabled. Phoenix is running in robot controller and Talon FX has good CAN connection to robot controller.', 'Talon FX enabled with neutral output.'],
+          correct: 0,
+        },
+{
+          q: 'What does it mean when the LEDs are off?',
+          choices: ['Talon FX in bootloader', 'Talon FX in thermal cutoff', 'No Power', 'TalonFX enabled with neutrl output'],
           correct: 2,
         },
-      ],
+{
+          q: 'What does it mean when the LEDs alternate red/green?',
+          choices: ['Talon FX driven with Pro-only command while unlicensed', 'Talon FX driving in reverse. Rate of blink corresponds to duty cycle applied.', 'TalonFX in bootloader', 'Talon FX enabled with neutral output'],
+          correct: 0,
+        },
+	 {
+          q: 'What does it mean when the LEDs are both solid orange?',
+          choices: ['Damaged Hardware', 'Talon FX enabled with neutral output', 'Talon FX in thermal cutoff', 'Talon FX driving forward. Rate of blink corresponds to duty cycle applied.'],
+          correct: 1,
+        },
+	 {
+          q: 'What does it mean when only one LED is alternating green/orange?',
+          choices: ['Talon FX has valid CAN signal and is disabled. Phoenix is running in robot controller and Talon FX has good CAN connection to robot controller.', 'TalonFX detects CAN but does not see Phoenix running on the robot controller.', 'Talon FX in bootloader', 'Talon FX does not have a valid CAN/PWM signal.'],
+          correct: 2,
+        },
+     {
+          q: 'What does it mean when the LEDs alternate red/orange?',
+          choices: ['Talon FX driving in reverse. Rate of blink corresponds to duty cycle applied.', 'Talon FX limited (hard or soft limit). Direction of offset determines forward/reverse limit.', 'Damaged Hardware', 'Talon FX driven with Pro-only command while unlicensed.'],
+          correct: 2,
+        },
+	{
+          q: 'What does it mean when the LEDs blink green simultaneously?',
+          choices: ['Talon FX does not have a valid CAN/PWM signal.', 'Talon FX limited (hard or soft limit). Direction of offset determines forward/reverse limit.', 'Talon FX has valid CAN signal and is disabled. Phoenix is running in robot controller and Talon FX has good CAN connection to robot controller.', 'Talon FX driving forward. Rate of blink corresponds to duty cycle applied.'],
+          correct: 3,
+        },
+	{
+          q: 'What does it mean when the LEDss Offset orange/off?',
+          choices: ['Talon FX in thermal cutoff', 'No Power', 'Talon FX limited (hard or soft limit). Direction of offset determines forward/reverse limit.', 'Talon FX does not have a valid CAN/PWM signal.'],
+          correct: 0,
+        },
+	{
+          q: 'What does it mean when the LEDs blink alternating red?',
+          choices: ['Talon FX driving forward. Rate of blink corresponds to duty cycle applied.', 'Talon FX does not have a valid CAN/PWM signal.', 'Damaged Hardware', 'TalonFX detects CAN but does not see Phoenix running on the robot controller.'],
+          correct: 1,
+        },
+	 {
+          q: 'What does it mean when the LEDs offset alternate red/off?',
+          choices: ['Talon FX has valid CAN signal and is disabled. Phoenix is running in robot controller and Talon FX has good CAN connection to robot controller.', 'Talon FX limited (hard or soft limit). Direction of offset determines forward/reverse limit.', 'Talon FX in thermal cutoff.', 'Talon FX driving forward. Rate of blink corresponds to duty cycle applied.'],
+          correct: 1,
+        },
+	{
+          q: 'What does it mean when the LEDs blink simultaneously orange?',
+          choices: ['TalonFX detects CAN but does not see Phoenix running on the robot controller.', 'Talon FX in bootloader', 'Talon FX enabled with neutral output.', 'Talon FX has valid CAN signal and is disabled. Phoenix is running in robot controller and Talon FX has good CAN connection to robot controller.'],
+          correct: 3,
+        },
+	
+ ],
       pigeon: [
         {
           q: 'Question',
