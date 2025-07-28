@@ -235,7 +235,7 @@
       </div>
 
       <div>
-        <h3 style="color: red;">Radio Light Quiz (Not FINISHED)</h3>
+        <h3 style="color: green;">Radio Light Quiz (DONE)</h3>
         <button class="quiz-button" onclick="startQuiz('radio')">Start Radio Quiz</button>
       </div>
 
@@ -357,74 +357,66 @@
       talonfx: [
        
         {
-          q: 'What does it mean when the TalonFx LEDs blink alternating orange?',
+          q: ' <b> TALON FX - </b> What does it mean when the TalonFx LEDs blink alternating orange?',
           choices: ['Talon FX does not have a valid CAN/PWM signal.', 'Talon FX in thermal cutoff.', 'Talon FX limited (hard or soft limit). Direction of offset determines forward/reverse limit.', 'TalonFX detects CAN but does not see Phoenix running on the robot controller.'],
           correct: 3,
         },
 {
-          q: 'What does it mean when LEDs blink simultaneously red?',
+          q: ' <b> TALON FX - </b> What does it mean when LEDs blink simultaneously red?',
           choices: ['Talon FX driving in reverse. Rate of blink corresponds to duty cycle applied.', 'Damaged Hardware.', 'Talon FX has valid CAN signal and is disabled. Phoenix is running in robot controller and Talon FX has good CAN connection to robot controller.', 'Talon FX enabled with neutral output.'],
           correct: 0,
         },
 {
-          q: 'What does it mean when the LEDs are off?',
+          q: ' <b> TALON FX - </b> What does it mean when the LEDs are off?',
           choices: ['Talon FX in bootloader', 'Talon FX in thermal cutoff', 'No Power', 'TalonFX enabled with neutrl output'],
           correct: 2,
         },
 {
-          q: 'What does it mean when the LEDs alternate red/green?',
+          q: ' <b> TALON FX - </b> What does it mean when the LEDs alternate red/green?',
           choices: ['Talon FX driven with Pro-only command while unlicensed', 'Talon FX driving in reverse. Rate of blink corresponds to duty cycle applied.', 'TalonFX in bootloader', 'Talon FX enabled with neutral output'],
           correct: 0,
         },
 	 {
-          q: 'What does it mean when the LEDs are both solid orange?',
+          q: ' <b> TALON FX - </b> What does it mean when the LEDs are both solid orange?',
           choices: ['Damaged Hardware', 'Talon FX enabled with neutral output', 'Talon FX in thermal cutoff', 'Talon FX driving forward. Rate of blink corresponds to duty cycle applied.'],
           correct: 1,
         },
 	 {
-          q: 'What does it mean when only one LED is alternating green/orange?',
+          q: ' <b> TALON FX - </b> What does it mean when only one LED is alternating green/orange?',
           choices: ['Talon FX has valid CAN signal and is disabled. Phoenix is running in robot controller and Talon FX has good CAN connection to robot controller.', 'TalonFX detects CAN but does not see Phoenix running on the robot controller.', 'Talon FX in bootloader', 'Talon FX does not have a valid CAN/PWM signal.'],
           correct: 2,
         },
      {
-          q: 'What does it mean when the LEDs alternate red/orange?',
+          q: ' <b> TALON FX - </b> What does it mean when the LEDs alternate red/orange?',
           choices: ['Talon FX driving in reverse. Rate of blink corresponds to duty cycle applied.', 'Talon FX limited (hard or soft limit). Direction of offset determines forward/reverse limit.', 'Damaged Hardware', 'Talon FX driven with Pro-only command while unlicensed.'],
           correct: 2,
         },
 	{
-          q: 'What does it mean when the LEDs blink green simultaneously?',
+          q: ' <b> TALON FX - </b> What does it mean when the LEDs blink green simultaneously?',
           choices: ['Talon FX does not have a valid CAN/PWM signal.', 'Talon FX limited (hard or soft limit). Direction of offset determines forward/reverse limit.', 'Talon FX has valid CAN signal and is disabled. Phoenix is running in robot controller and Talon FX has good CAN connection to robot controller.', 'Talon FX driving forward. Rate of blink corresponds to duty cycle applied.'],
           correct: 3,
         },
 	{
-          q: 'What does it mean when the LEDss Offset orange/off?',
+          q: ' <b> TALON FX - </b> What does it mean when the LEDss Offset orange/off?',
           choices: ['Talon FX in thermal cutoff', 'No Power', 'Talon FX limited (hard or soft limit). Direction of offset determines forward/reverse limit.', 'Talon FX does not have a valid CAN/PWM signal.'],
           correct: 0,
         },
 	{
-          q: 'What does it mean when the LEDs blink alternating red?',
+          q: ' <b> TALON FX - </b> What does it mean when the LEDs blink alternating red?',
           choices: ['Talon FX driving forward. Rate of blink corresponds to duty cycle applied.', 'Talon FX does not have a valid CAN/PWM signal.', 'Damaged Hardware', 'TalonFX detects CAN but does not see Phoenix running on the robot controller.'],
           correct: 1,
         },
 	 {
-          q: 'What does it mean when the LEDs offset alternate red/off?',
+          q: ' <b> TALON FX - </b> What does it mean when the LEDs offset alternate red/off?',
           choices: ['Talon FX has valid CAN signal and is disabled. Phoenix is running in robot controller and Talon FX has good CAN connection to robot controller.', 'Talon FX limited (hard or soft limit). Direction of offset determines forward/reverse limit.', 'Talon FX in thermal cutoff.', 'Talon FX driving forward. Rate of blink corresponds to duty cycle applied.'],
           correct: 1,
         },
 	{
-          q: 'What does it mean when the LEDs blink simultaneously orange?',
+          q: ' <b> TALON FX - </b> What does it mean when the LEDs blink simultaneously orange?',
           choices: ['TalonFX detects CAN but does not see Phoenix running on the robot controller.', 'Talon FX in bootloader', 'Talon FX enabled with neutral output.', 'Talon FX has valid CAN signal and is disabled. Phoenix is running in robot controller and Talon FX has good CAN connection to robot controller.'],
           correct: 3,
         },
-	
- ],
-      pigeon: [
-        {
-          q: 'Question',
-          choices: ['answer', 'answer', 'answer', 'answer'],
-          correct: 2,
-        },
-        // Add more questions here (total 10)
+
       ],
       // ... other quizzes
       canivore: [ 
@@ -435,40 +427,71 @@
         },
 ],
       radio: [ {
-          q: 'Question',
-          choices: ['answer 1', 'answer2', 'answer 3', 'answer 4'],
+          q: ' <b> RADIO - </b> What does it mean when the Radio LEDs are solid/solid? ',
+          choices: ['Radio is powered on, firmware is currently being flashed', 'Radio is configured as an AP and a battery has been detected, wireless is disabled until corrected and power cycled.', 'Radio is powered on, able to ping 10.xx.yy.4 (Field side IP)', 'Radio is powered on, firmware is currently being flashed'],
           correct: 2,
         },
+	{
+          q: ' <b> RADIO - </b> What does it mean when the Radio LEDs are off?',
+          choices: ['Radio is not powered on', 'Radio is powered on, currently booting', 'Radio is powered on, unable to ping 10.xx.yy.4 (Field side IP)', 'Radio is powered on, firmware flashing successful, performing "first boot" sequence'],
+          correct: 0,
+        },
+	{
+          q: ' <b> RADIO - </b> What does it mean when the Radio LEDs are Solid / 20 Hz / 20 Hz / 20 Hz',
+          choices: ['Radio is configured as an AP and a battery has been detected, wireless is disabled until corrected and power cycled.', 'Radio is powered on, firmware flashing successful, performing "first boot" sequence', 'Radio is powered on, unable to ping 10.xx.yy.4 (Field side IP)', 'Radio is not powered on.'],
+          correct: 0,
+        },
+{
+          q: ' <b> RADIO - </b> What does it mean when the LEDs are Solid / 50 Hz Blink?',
+          choices: ['Radio is powered on, able to ping 10.xx.yy.4 (Field side IP)', 'Radio is powered on, firmware is currently being flashed', 'Radio is powered on, firmware flashing successful, performing "first boot" sequence', 'Radio is powered on, currently booting'],
+          correct: 2,
+        },
+{
+          q: ' <b> RADIO - </b> What does it mean when the LEDs are Solid 1 Hz blink?',
+          choices: ['Radio is configured as an AP and a battery has been detected, wireless is disabled until corrected and power cycled.', 'Radio is powered on, firmware flashing successful, performing "first boot" sequence', 'Radio is powered on, firmware is currently being flashed', 'Radio is powered on, unable to ping 10.xx.yy.4 (Field side IP)'],
+          correct: 3,
+        },
+{
+          q: 'What does it mean when the LEDs are Solid/Off?',
+          choices: ['Radio is powered on, able to ping 10.xx.yy.4 (Field side IP)', 'Radio is powered on, currently booting', 'Radio is configured as an AP and a battery has been detected, wireless is disabled until corrected and power cycled.', 'Radio is powered on, firmware flashing successful, performing "first boot" sequence'],
+          correct: 1,
+        },
+{
+          q: 'What does it mean when the LEDs are Solid/ 20 Hz Blink?',
+          choices: ['Radio is not powered on', 'Radio is powered on, firmware is currently being flashed', 'Radio is powered on, firmware flashing successful, performing "first boot" sequence', 'Radio is powered on, firmware is currently being flashed'],
+          correct: 1,
+        },
+
 ],
       canandcolor: [
          {
-          q: 'What does it mean when the Canandcolor LEDs are solid blue?',
+          q: ' <b> CANANDCOLOR - </b> What does it mean when the Canandcolor LEDs are solid blue?',
           choices: ['Hardware fault', 'DFU failed, check alchemist', 'DFU in progress', 'CAN ID conflict'],
           correct: 1,
         },
 
          {
-          q: 'What does it mean when the LEDs alternate red and blue?',
+          q: ' <b> CANANDCOLOR - </b> What does it mean when the LEDs alternate red and blue?',
           choices: ['CAN ID conflict', 'Normal operation, roboRIO detected on CAN bus', 'roboRIO not detected or other CANbus faults', 'roboRIO detected on CAN bus'],
           correct: 0,
         },
 	{
-          q: 'What does it mean when the LEDs blink red slowly?',
+          q: ' <b> CANANDCOLOR - </b> What does it mean when the LEDs blink red slowly?',
           choices: ['roboRIO not detected or other CANbus faults', 'CAN ID conflict', 'DFU in progress', 'Hardware fault'],
           correct: 0,
         },
 	{
-          q: 'What does it mean when the LEDs blink green slowly?',
+          q: ' <b> CANANDCOLOR - </b> What does it mean when the LEDs blink green slowly?',
           choices: ['DFU in progress', 'Hardware fault', 'Normal operation, roboRIO detected on CAN bus', 'roboRIO not detected or other CANbus faults'],
           correct: 2,
         },
 	{
-          q: 'What does it mean when the LEDs blink Alternating Red and Yellow?',
+          q: ' <b> CANANDCOLOR - </b> What does it mean when the LEDs blink Alternating Red and Yellow?',
           choices: ['roboRIO not detected or other CANbus faults', 'DFU in progress', 'CAN ID conflict', 'Hardware falut'],
           correct: 3,
         },
 	{
-          q: 'What does it mean when the LEDs blink blue??',
+          q: ' <b> CANANDCOLOR - </b> What does it mean when the LEDs blink blue??',
           choices: ['Normal operation, roboRIO detected on CAN bus', 'DFU in progress', 'roboRIO not detected or other CANbus faults', 'DFU failed, check Alchemist'],
           correct: 1,
         },
@@ -479,37 +502,37 @@
       ],
       pigeon: [
          {
-          q: 'What does it mean when the Pigeon LEDs alternate Red/Orange?',
+          q: ' <b> PIGEON - </b> What does it mean when the Pigeon LEDs alternate Red/Orange?',
           choices: ['Pigeon 2 does not have valid CAN.', 'Damaged hardware', 'Pigeon 2 detects CAN and sees the robot is enabled.', 'Pigeon 2 in bootloader'],
           correct: 1,
         },
         {
-          q: 'What does it mean when a single LED alternates Green/ Orange?',
+          q: ' <b> PIGEON - </b> What does it mean when a single LED alternates Green/ Orange?',
           choices: ['Pigeon 2 does not have valid CAN.', 'Pigeon 2 detects CAN and sees the robot is enabled.', 'Pigeon 2 is in bootloader.', 'No Power'],
           correct: 2,
         },
         {
-          q: 'What does it mean when the LEDs are off?',
+          q: ' <b> PIGEON - </b> What does it mean when the LEDs are off?',
           choices: ['No Power', 'Pigeon 2 detects CAN but does not see Phoenix running on the robot controller.', 'Damaged Hardware', 'Pigeon 2 does not have valid CAN'],
           correct: 0,
         },
         {
-          q: 'What does it mean when the LEDs blink simultaneously orange?',
+          q: ' <b> PIGEON - </b> What does it mean when the LEDs blink simultaneously orange?',
           choices: ['Pigeon 2 detects CAN and sees the robot is disabled. Phoenix is running in robot controller and Pigeon 2 has good CAN connection to robot controller.', 'Pigeon 2 detects CAN but does not see Phoenix running on the robot controller.', 'Pigeon 2 in bootloader', 'Pigeon 2 does not have valid CAN'],
           correct: 0,
         },
         {
-          q: 'What does it mean when the LEDs blink alternating Orange?',
+          q: ' <b> PIGEON - </b> What does it mean when the LEDs blink alternating Orange?',
           choices: ['Pigeon 2 does not have valid CAN.', 'Pigeon 2 detects CAN but does not see Phoenix running on the robot controller.', 'Pigeon 2 detects CAN and sees the robot is enabled.', 'Damaged Hardware'],
           correct: 1,
           },
         {
-          q: 'What does it mean when the LEDs Alternate Red?',
+          q: ' <b> PIGEON - </b> What does it mean when the LEDs Alternate Red?',
           choices: ['No Power', 'Pigeon 2 detects CAN and sees the robot is enabled.', 'Damaged Hardware.', 'Pigeon 2 does not have valid CAN.'],
           correct: 3,
         },
 	{
-          q: 'What does it mean when the LEDs Alternate Green',
+          q: ' <b> PIGEON - </b> What does it mean when the LEDs Alternate Green',
           choices: ['Pigeon 2 detects CAN and sees the robot is enabled.', 'Pigeon 2 detects CAN and sees the robot is disabled. Phoenix is running in robot controller and Pigeon 2 has good CAN connection to robot controller.', 'Pigeon 2 detects CAN but does not see Phoenix running on the robot controller.', 'Pigeon 2  does not detect the CAN and sees the robot is powered Off.'],
           correct: 0,
         },
@@ -526,14 +549,20 @@
       userAnswers = [];
 
     function startQuiz(type) {
-      if (type === 'all') {
-        currentQuiz = [];
-        for (let key in quizData) {
-          if (key !== 'all') currentQuiz = currentQuiz.concat(quizData[key]);
-        }
-      } else {
-        currentQuiz = quizData[type].slice();
-      }
+    if (type === 'all') {
+  currentQuiz = [];
+  for (let key in quizData) {
+    if (key !== 'all') currentQuiz = currentQuiz.concat(quizData[key]);
+  }
+} else {
+  currentQuiz = quizData[type].slice();
+}
+
+// Shuffle the questions
+for (let i = currentQuiz.length - 1; i > 0; i--) {
+  const j = Math.floor(Math.random() * (i + 1));
+  [currentQuiz[i], currentQuiz[j]] = [currentQuiz[j], currentQuiz[i]];
+}
 
       // Don't shuffle answers here for simplicity or fix answer check accordingly
       currentIndex = 0;
@@ -588,7 +617,7 @@
       const container = document.getElementById('quiz-question-container');
       container.innerHTML += `
         <p style="color:${wasCorrect ? 'green' : 'red'};">
-          ${wasCorrect ? '✔ Correct!' : `❌ Wrong. Correct: ${q.choices[q.correct]}`}
+          ${wasCorrect ? '✔ Correct!' : `❌ Wrong - Correct: ${q.choices[q.correct]}`}
         </p>
       `;
 
@@ -615,7 +644,7 @@
             <li style="margin:10px 0;">
               <strong>Q${i + 1}:</strong> ${a.question}<br>
               <span style="color:${a.isCorrect ? 'green' : 'red'};">
-                ${a.isCorrect ? '✔ Correct' : `❌ Incorrect`} — Your Answer: ${a.selected} | Correct: ${a.correct}
+                ${a.isCorrect ? '✔ Correct' : `❌ Incorrect - Correct: ${a.correct}`}
               </span>
             </li>
           `
