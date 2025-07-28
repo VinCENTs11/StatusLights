@@ -615,11 +615,12 @@ for (let i = currentQuiz.length - 1; i > 0; i--) {
       });
 
       const container = document.getElementById('quiz-question-container');
-      container.innerHTML += `
-        <p style="color:${wasCorrect ? 'green' : 'red'};">
-          ${wasCorrect ? '✔ Correct!' : `❌ Wrong - Correct: ${q.choices[q.correct]}`}
-        </p>
-      `;
+container.innerHTML += `
+  <p style="color:${wasCorrect ? 'green' : 'red'};">
+    ${wasCorrect ? '✔ Correct!' : '❌ Wrong'}
+  </p>
+`;
+
 
       document.getElementById('confirm-btn').style.display = 'none';
 
@@ -632,28 +633,49 @@ for (let i = currentQuiz.length - 1; i > 0; i--) {
         }
       }, 1500);
     }
+function showSummary() {
+  const container = document.getElementById('quiz-question-container');
 
-    function showSummary() {
-      const container = document.getElementById('quiz-question-container');
-      container.innerHTML = `
-        <h3>Quiz Summary</h3>
-        <ul style="list-style:none;padding:0;">
-          ${userAnswers
-            .map(
-              (a, i) => `
-            <li style="margin:10px 0;">
-              <strong>Q${i + 1}:</strong> ${a.question}<br>
-              <span style="color:${a.isCorrect ? 'green' : 'red'};">
-                ${a.isCorrect ? '✔ Correct' : `❌ Incorrect - Correct: ${a.correct}`}
-              </span>
-            </li>
-          `
-            )
-            .join('')}
-        </ul>
-      `;
-      document.getElementById('back-to-menu').style.display = 'inline-block';
-    }
+  // Calculate score
+  const total = userAnswers.length;
+  const correctCount = userAnswers.filter(a => a.isCorrect).length;
+  const percent = Math.round((correctCount / total) * 100);
+
+  // Determine color based on percent
+  let color = 'red'; // default
+  if (percent >= 80) {
+    color = 'green';
+  } else if (percent >= 70) {
+    color = 'yellow';
+  }
+
+  container.innerHTML = `
+    <h1 style="font-size: 5rem; color: ${color}; margin-bottom: 10px; text-align: center;">
+      ${percent}%
+    </h1>
+    <p style="font-size: 1.5rem; text-align: center; margin-bottom: 30px;">
+      You got <strong>${correctCount}</strong> right and <strong>${total - correctCount}</strong> wrong out of <strong>${total}</strong> questions.
+    </p>
+
+    <h3>Quiz Summary</h3>
+    <ul style="list-style:none; padding:0;">
+      ${userAnswers
+        .map(
+          (a, i) => `
+        <li style="margin:10px 0;">
+          <strong>Q${i + 1}:</strong> ${a.question}<br>
+          <span style="color:${a.isCorrect ? 'green' : 'red'};">
+            ${a.isCorrect ? '✔ Correct' : `❌ Incorrect - Correct: ${a.correct}`}
+          </span>
+        </li>
+      `
+        )
+        .join('')}
+    </ul>
+  `;
+  document.getElementById('back-to-menu').style.display = 'inline-block';
+}
+
 
     function returnToMenu() {
       document.getElementById('quiz-container').style.display = 'none';
