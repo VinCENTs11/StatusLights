@@ -4,8 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>FRC Status Lights</title>
-  <style>
-    * {
+ 
+ <style>
+    
+* {
       box-sizing: border-box;
     }
 
@@ -171,7 +173,7 @@
     <a onclick="showSection('canivore')">CANivore Light Status</a>
     <a onclick="showSection('radio')">Radio Light Status</a>
     <a onclick="showSection('canandcolor')">Canandcolor Light Status</a>
-    <a onclick="showSection('quiz')">Quiz (STILL IN PROGRESS!!!!!)</a>
+    <a onclick="showSection('quiz')">Quiz</a>
     <a onclick="showSection('about')">ABOUT</a>
   </div>
 
@@ -220,33 +222,123 @@
       </p>
 
       <div>
-        <h3 style="color: green;">Talon FX Light Quiz(DONE)</h3>
+        <h3>Talon FX Light Quiz</h3>
         <button class="quiz-button" onclick="startQuiz('talonfx')">Start TalonFX Quiz</button>
       </div>
 
       <div>
-       <h3 style="color: green;">Pigeon Light Quiz (DONE)</h3>
+       <h3>Pigeon Light Quiz</h3>
         <button class="quiz-button" onclick="startQuiz('pigeon')">Start Pigeon Quiz</button>
       </div>
 
      <div>
-        <h3 style="color: green;">Canandcolor Light Quiz (DONE)</h3>
+        <h3>Canandcolor Light Quiz</h3>
         <button class="quiz-button" onclick="startQuiz('canandcolor')">Start Canandcolor Quiz</button>
       </div>
 
       <div>
-        <h3 style="color: green;">Radio Light Quiz (DONE)</h3>
+        <h3>Radio Light Quiz</h3>
         <button class="quiz-button" onclick="startQuiz('radio')">Start Radio Quiz</button>
       </div>
 
        <div>
-        <h3 style="color: red;">CANivore Light Quiz (Not FINISHED)</h3>
+        <h3>CANivore Light Quiz</h3>
         <button class="quiz-button" onclick="startQuiz('canivore')">Start CANivore Quiz</button>
       </div>
 
       <div>
-        <h3 style="color: red;">ALL Quiz For Status Lights (Not FINISHED)</h3>
-        <button class="quiz-button" onclick="startQuiz('all')">Start ALL Quiz</button>
+        <h3>All-in-One Status Light Quiz</h3>
+<!-- Include Tech Font -->
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&display=swap" rel="stylesheet">
+
+<!-- Button Element -->
+<button class="lightning-button">Start Quiz</button>
+
+<!-- CSS -->
+<style>
+@keyframes lightningPulse {
+  0% {
+    box-shadow:
+      0 0 6px #0A84FF,
+      0 0 12px #0A84FF,
+      0 0 20px #00C3FF,
+      0 0 30px #00C3FF;
+  }
+  25% {
+    box-shadow:
+      0 0 12px #00C3FF,
+      -4px 0 18px #0A84FF,
+      4px 0 24px #00C3FF;
+  }
+  50% {
+    box-shadow:
+      0 0 4px #0A84FF,
+      0 0 10px #00C3FF,
+      0 0 20px #0A84FF;
+  }
+  75% {
+    box-shadow:
+      0 0 16px #0A84FF,
+      -3px 0 30px #00C3FF,
+      3px 0 24px #0A84FF;
+  }
+  100% {
+    box-shadow:
+      0 0 6px #0A84FF,
+      0 0 12px #0A84FF,
+      0 0 20px #00C3FF,
+      0 0 30px #00C3FF;
+  }
+}
+
+@keyframes crackle {
+  0%, 100% {
+    clip-path: polygon(0 20%, 20% 25%, 40% 10%, 60% 30%, 80% 5%, 100% 20%, 100% 100%, 0 100%);
+  }
+  50% {
+    clip-path: polygon(0 25%, 25% 10%, 45% 30%, 65% 15%, 85% 35%, 100% 20%, 100% 100%, 0 100%);
+  }
+}
+
+.lightning-button {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.4rem;
+  padding: 14px 36px;
+  color: #ffffff;
+  background: #0A0F1C;
+  border: 3px solid #0A84FF;
+  border-radius: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  animation: lightningPulse 1.2s infinite ease-in-out;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.lightning-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, #00C3FF44, #0A84FF22);
+  z-index: -1;
+  animation: crackle 0.8s infinite linear;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.lightning-button:hover {
+  transform: scale(1.08);
+  border-color: #00C3FF;
+  animation-duration: 0.6s;
+}
+</style>
+
       </div>
     </div>
 
@@ -421,10 +513,33 @@
       // ... other quizzes
       canivore: [ 
 {
-          q: 'Question',
-          choices: ['answer 1', 'answer2', 'answer 3', 'answer 4'],
+          q: ' <b> CANIVORE - </b> What does it mean when STAT LEDs double blink red?',
+          choices: ['CAN FD active', 'No CAN communication', 'CANivore is in Bootloader', 'Device powered through V+/V-, but USB not plugged in.'],
+          correct: 3,
+        },
+	{
+          q: ' <b> CANIVORE - </b> What does it mean when the *<b>WIFI</b>* LEDs blink green? ',
+          choices: ['Good USB connection, CAN streaming is disabled', 'Bluetooth is enabled or ESP32 custom application is allowed to use Bluetooth', 'Bluetooth is disabled', 'Wi-Fi is enabled or ESP32 custom application is allowed to use Wi-Fi'],
+          correct: 3,
+        },
+	{
+          q: ' <b> CANIVORE - </b> What does it mean when the STAT LEDs blink orange/red?',
+          choices: ['CANivore has hardware damage', 'USB plugged in, but no USB communication (USB not enumerated or USB suspended)', 'No CAN communication', 'Good USB connection, CAN streaming is enabled'],
+          correct: 0,
+        },
+	{
+          q: ' <b> CANIVORE - </b> What does it mean when the STAT LEDs strobe green?',
+          choices: ['Good USB connection, CAN streaming is disabled', 'CANivore has hardware damage', 'Good USB connection, CAN streaming is enabled', 'Reserved for CAN 2.0b legacy mode'],
           correct: 2,
         },
+	{
+          q: 'question',
+          choices: ['1', '2', '3', '4'],
+          correct: 2,
+        },
+	
+
+
 ],
       radio: [ {
           q: ' <b> RADIO - </b> What does it mean when the Radio LEDs are solid/solid? ',
@@ -452,12 +567,12 @@
           correct: 3,
         },
 {
-          q: 'What does it mean when the LEDs are Solid/Off?',
+          q: ' <b> RADIO - </b> What does it mean when the LEDs are Solid/Off?',
           choices: ['Radio is powered on, able to ping 10.xx.yy.4 (Field side IP)', 'Radio is powered on, currently booting', 'Radio is configured as an AP and a battery has been detected, wireless is disabled until corrected and power cycled.', 'Radio is powered on, firmware flashing successful, performing "first boot" sequence'],
           correct: 1,
         },
 {
-          q: 'What does it mean when the LEDs are Solid/ 20 Hz Blink?',
+          q: ' <b> RADIO - </b> What does it mean when the LEDs are Solid/ 20 Hz Blink?',
           choices: ['Radio is not powered on', 'Radio is powered on, firmware is currently being flashed', 'Radio is powered on, firmware flashing successful, performing "first boot" sequence', 'Radio is powered on, firmware is currently being flashed'],
           correct: 1,
         },
