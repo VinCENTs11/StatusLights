@@ -173,6 +173,9 @@
     <a onclick="showSection('canivore')">CANivore Light Status</a>
     <a onclick="showSection('radio')">Radio Light Status</a>
     <a onclick="showSection('canandcolor')">Canandcolor Light Status</a>
+    <a onclick="showSection('canrange')">CAN Range Light Status</a>
+    <a onclick="showSection('roborio')">Roborio Light Status</a>
+    <a onclick="showSection('pdp')">PDP Light Status</a>
     <a onclick="showSection('quiz')">Quiz</a>
     <a onclick="showSection('about')">ABOUT</a>
   </div>
@@ -213,6 +216,36 @@
       </div>
     </div>
 
+<div id="canrange" class="section">
+      <h2>CAN Range Light Status</h2>
+      <div class="gif-placeholder">
+        <img src="img/CANrange.gif" alt="CAN Range Status Light" />
+      </div>
+    </div>
+
+<div id="canrange" class="section">
+      <h2>CAN Range Light Status</h2>
+      <div class="gif-placeholder">
+        <img src="img/CANrange.gif" alt="CAN Range Status Light" />
+      </div>
+    </div>
+
+<div id="roborio" class="section">
+      <h2>Roborio Light Status</h2>
+      <div class="gif-placeholder">
+        <img src="img/roborio.png" alt="Roborio Status Light" />
+      </div>
+    </div>
+
+<div id="pdp" class="section">
+      <h2>PDP Light Status</h2>
+      <div class="gif-placeholder">
+        <img src="img/pdp.png" alt="PDP Status Light" />
+      </div>
+    </div>
+
+
+
     <!-- Quiz Main Section with headers and start buttons -->
     <div id="quiz" class="section">
       <h2>Quiz For Status Lights</h2>
@@ -244,6 +277,21 @@
        <div>
         <h3>CANivore Light Quiz</h3>
         <button class="quiz-button" onclick="startQuiz('canivore')">Start CANivore Quiz</button>
+      </div>
+
+	<div>
+        <h3>Roborio Light Quiz</h3>
+        <button class="quiz-button" onclick="startQuiz('roborio')">Start Roborio Quiz</button>
+      </div>	
+
+	<div>
+        <h3>PDP Light Quiz</h3>
+        <button class="quiz-button" onclick="startQuiz('pdp')">Start PDP Quiz</button>
+      </div>
+
+	<div>
+        <h3>CAN Range Light Quiz</h3>
+        <button class="quiz-button" onclick="startQuiz('canrange')">Start CAN Range Quiz</button>
       </div>
 
       <div>
@@ -439,14 +487,14 @@
           correct: 0,
         },
 	{
-          q: ' <b> CANIVORE - </b> What does it mean when the STAT LEDs strobe green?',
+          q: ' <b> CANIVORE - </b> What does it mean when the STAT LEDs fast strobe green?',
           choices: ['Good USB connection, CAN streaming is disabled', 'CANivore has hardware damage', 'Good USB connection, CAN streaming is enabled', 'Reserved for CAN 2.0b legacy mode'],
           correct: 2,
         },
 	{
-          q: 'question',
-          choices: ['1', '2', '3', '4'],
-          correct: 2,
+          q: 'What does it mean when the *<b>WIFI</b>* LEDs are off?',
+          choices: ['Wi-Fi is disabled', 'CAN FD active', 'Bluetooth is disabled', 'Reserved for CAN 2.0b legacy mode'],
+          correct: 0,
         },
 	
 
@@ -566,7 +614,7 @@
 
         // Add more questions here (total 10)
       ],
-      all: [],
+   
     };
 
     let currentQuiz = [],
